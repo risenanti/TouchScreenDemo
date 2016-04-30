@@ -49,19 +49,6 @@ int main(void)
 
     HAL_GPIO_WritePin(gpio_toggle, GPIO_PIN_1, GPIO_PIN_RESET);
 
-    // Set up the LCD
-    BSP_LCD_Init();
-    BSP_LCD_LayerDefaultInit(LTDC_ACTIVE_LAYER, LCD_FRAME_BUFFER);
-    BSP_LCD_SetLayerVisible(LTDC_ACTIVE_LAYER, ENABLE);
-    BSP_LCD_SelectLayer(LTDC_ACTIVE_LAYER);
-    BSP_LCD_Clear(LCD_COLOR_BLACK);
-    BSP_LCD_SetBackColor(LCD_COLOR_BLACK);
-    BSP_LCD_SetTextColor(LCD_COLOR_WHITE);
-    BSP_LCD_DisplayOn();
-
-    //Set up TS
-    BSP_TS_Init(BSP_LCD_GetXSize(), BSP_LCD_GetYSize());
-
     //button exists between 220 to 260 x and 116 to 156 y
     Display_LCD_Button();
 
@@ -96,6 +83,19 @@ void Setup()
     /* Configure the System clock to have a frequency of 216 MHz */
     SystemClock_Config();
 	HAL_Init();
+
+    // Set up the LCD
+    BSP_LCD_Init();
+    BSP_LCD_LayerDefaultInit(LTDC_ACTIVE_LAYER, LCD_FRAME_BUFFER);
+    BSP_LCD_SetLayerVisible(LTDC_ACTIVE_LAYER, ENABLE);
+    BSP_LCD_SelectLayer(LTDC_ACTIVE_LAYER);
+    BSP_LCD_Clear(LCD_COLOR_BLACK);
+    BSP_LCD_SetBackColor(LCD_COLOR_BLACK);
+    BSP_LCD_SetTextColor(LCD_COLOR_WHITE);
+    BSP_LCD_DisplayOn();
+
+    //Set up TS
+    BSP_TS_Init(BSP_LCD_GetXSize(), BSP_LCD_GetYSize());
 }
 
 void LCD_TEXT_DEFAULT()
