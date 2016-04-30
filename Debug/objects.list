@@ -1,0 +1,5 @@
+"startup/startup_stm32f746xx.o"
+"src/main.o"
+"src/stm32f7xx_it.o"
+"src/syscalls.o"
+"src/system_stm32f7xx.o"
